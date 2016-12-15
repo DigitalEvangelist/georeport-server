@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<main class="container signup-section">
+		<div class="section-content">
+			<h2>Create an account</h2>
+
+			<form method="POST" action="/requests">
+				{{ form.hidden_tag() }}
+
+				<div class="form-group">
+				 {{ form.address.label }}
+
+				 {% if form.address.errors %}
+				 	{% for error in form.address.errors %}
+				 		<p class="error-message"> {{ error }} </p>
+				 	{% endfor %}
+				 {% endif %}
+
+				 {{ form.address }}
+				 </div>
+
+				 <div class="form-group">
+				 {{ form.zipcode.label }}
+
+				 {% if form.zipcode.errors %}
+				 	{% for error in form.zipcode.errors %}
+				 		<p class="error-message"> {{ error }} </p>
+				 	{% endfor %}
+				 {% endif %}
+
+				 {{ form.zipcode }}
+				 </div>
+
+				 <div class="form-group">
+				 {{ form.service_code.label }}
+
+				 {% if form.service_code.errors %}
+				 	{% for error in form.service_code.errors %}
+				 		<p class="error-message"> {{ error }} </p>
+				 	{% endfor %}
+				 {% endif %}
+
+				 {{ form.service_code }}
+				 </div>
+
+				 <div class="form-group">
+				 {{ form.service_name.label }}
+
+				 {% if form.service_name.errors %}
+				 	{% for error in form.service_name.errors %}
+				 		<p class="error-message"> {{ error }} </p>
+				 	{% endfor %}
+				 {% endif %}
+				 
+				 {{ form.service_name }}
+				 </div>
+
+				 <div class="form-group">
+				 {{ form.description.label }}
+
+				 {% if form.description.errors %}
+				 	{% for error in form.description.errors %}
+				 		<p class="error-message"> {{ error }} </p>
+				 	{% endfor %}
+				 {% endif %}
+
+				 {{ form.description }}
+				 </div>
+
+				 <div class="form-group">
+				 {{ form.request_date.label }}
+
+				 {% if form.request_date.errors %}
+				 	{% for error in form.request_date.errors %}
+				 		<p class="error-message"> {{ error }} </p>
+				 	{% endfor %}
+				 {% endif %}
+
+				 {{ form.request_date }}
+				 </div>
+
+				 {{ form.submit(class="btn-primary") }}
+			</form>
+		</div>
+	</main>
+{% endblock %}
