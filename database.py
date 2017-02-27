@@ -35,7 +35,7 @@ class serviceRequest(db.Model):
 
 class Admin(db.Model):
 	__tablename__ = 'admin'
-	uid = db.Column(db.Integer, primary_key=True)
+	adminid = db.Column(db.Integer, primary_key=True)
 	firstname = db.Column(db.String(100))
 	lastname = db.Column(db.String(100))
 	email = db.Column(db.String(120))

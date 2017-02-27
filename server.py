@@ -22,7 +22,8 @@ JURISDICTION = 'miamidade.gov'
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.from_envvar('GEOREPORT_SETTINGS', silent=True)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/schenectadyOpen311'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://127.0.0.1/schenectadyOpen311'
+app.config['SQLALCHEMY_PGUSER'] = 'tehhdaryy'
 db.init_app(app)
 app.secret_key = "development-key"
 
