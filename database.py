@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug import generate_password_hash, check_password_hash
-import random
+
 
 db = SQLAlchemy()
 
@@ -8,7 +8,7 @@ class serviceRequest(db.Model):
 	__tablename__ = 'Service Requests'
 	address = db.Column(db.String(200), primary_key=True)
 	zipcode = db.Column(db.String(5))
-	service_code = db.Column(db.Integer)
+	service_code = db.Column(db.String(15))
 	service_name = db.Column(db.String(200))
 	service_request_id = db.Column(db.Integer)
 	description = db.Column(db.String(300))
@@ -32,6 +32,9 @@ class serviceRequest(db.Model):
 		self.update_date = update_date.title()
 		self.expected_date = expected_date.title()
 		self.agency_responsible = agency_responsible.title()
+
+	def searchRequest(self, request_id):
+		return request_id == self.service_request_id
 
 class Admin(db.Model):
 	__tablename__ = 'admin'
